@@ -1,0 +1,22 @@
+<form (submit)="handleSearch($event)" class="flex justify-center items-center">
+  <div
+    class="flex items-center bg-gray-800 opacity-80 text-white rounded-md overflow-hidden w-full max-w-md"
+  >
+    <span class="px-3 text-lg">
+      <lucide-icon name="Thermometer"></lucide-icon>
+    </span>
+    <input
+      type="text"
+      [(ngModel)]="searchTerm"
+      name="search"
+      placeholder="Search for a city, country, or place"
+      class="bg-gray-800 text-white placeholder-gray-400 focus:outline-none px-2 py-2 w-full"
+    />
+    <button
+      type="submit"
+      class="px-4 py-2 bg-gray-800 hover:bg-gray-600 text-white rounded-md"
+    >
+      <lucide-icon name="Search"></lucide-icon>
+    </button>
+  </div>
+</form>
