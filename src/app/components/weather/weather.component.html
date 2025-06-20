@@ -1,0 +1,66 @@
+<div class="pt-4 flex flex-col items-center">
+  <div
+    class="flex flex-col items-center p-6 bg-gray-800 opacity-80 rounded-lg text-white overflow-hidden w-full max-w-md shadow-lg"
+  >
+    <h2 class="text-2xl font-bold mb-4">
+      {{ weatherData.name }}, {{ weatherData.sys.country }}
+    </h2>
+    <div class="flex flex-col items-center w-full">
+      <div class="text-center mb-4">
+        <p class="text-6xl font-bold mb-2">
+          {{ weatherData.main.temp | number : "1.0-0" }}°C
+        </p>
+        <p class="flex items-center text-xl capitalize">
+          <img
+            [src]="
+              'https://openweathermap.org/img/wn/' +
+              weatherData.weather[0].icon +
+              '.png'
+            "
+            alt=""
+          />
+          {{ weatherData.weather[0].description }}
+        </p>
+      </div>
+      <div class="w-full grid grid-cols-2 gap-4 mt-4 text-center">
+        <div class="bg-gray-700 p-3 rounded-lg">
+          <p class="text-sm text-gray-300">Feels Like</p>
+          <p class="text-lg font-semibold">
+            {{ weatherData.main.feels_like | number : "1.0-0" }}°C
+          </p>
+        </div>
+        <div class="bg-gray-700 p-3 rounded-lg">
+          <p class="text-sm text-gray-300">Humidity</p>
+          <p class="text-lg font-semibold">{{ weatherData.main.humidity }}%</p>
+        </div>
+        <div class="bg-gray-700 p-3 rounded-lg col-span-2">
+          <p class="text-sm text-gray-300">Wind Speed</p>
+          <p class="text-lg font-semibold">{{ weatherData.wind.speed }} m/s</p>
+        </div>
+        <div class="flex justify-start">
+          <button
+            class="bg-gray-900 rounded-md p-2 hover:opacity-70"
+            (click)="onToggleFavorite()"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              class="lucide lucide-heart"
+              viewBox="0 0 24 24"
+              width="24"
+              height="24"
+              [attr.fill]="isFavorite() ? 'white' : 'none'"
+              stroke="currentColor"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21.4l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"
+              />
+            </svg>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
