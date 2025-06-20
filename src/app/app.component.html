@@ -1,5 +1,14 @@
 <app-layout>
   <app-search-bar (search)="onSearch($event)"></app-search-bar>
   <div *ngIf="errorMessage" class="error">{{ errorMessage }}</div>
-  <app-weather *ngIf="weatherData" [weatherData]="weatherData"></app-weather>
+  <app-weather
+    *ngIf="weatherData"
+    [weatherData]="weatherData"
+    [favorites]="favorites"
+    (toggleFavorite)="onToggleFavorite($event)"
+  ></app-weather>
+  <app-favorites
+    [favorites]="favorites"
+    (selectCity)="onSelectFavorite($event)"
+  ></app-favorites>
 </app-layout>

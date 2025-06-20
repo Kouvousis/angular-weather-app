@@ -5,6 +5,7 @@ import { WeatherComponent } from './components/weather/weather.component';
 import { WeatherData } from './interfaces/weather-data';
 import { WeatherApiService } from './services/weather-api.service';
 import { CommonModule } from '@angular/common';
+import { FavoritesComponent } from './components/favorites/favorites.component';
 
 @Component({
   selector: 'app-root',
@@ -14,6 +15,7 @@ import { CommonModule } from '@angular/common';
     SearchBarComponent,
     WeatherComponent,
     CommonModule,
+    FavoritesComponent,
   ],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css',
@@ -23,6 +25,7 @@ export class AppComponent {
 
   weatherData: WeatherData | null = null;
   errorMessage: string | null = null;
+  favorites: string[] = [];
 
   constructor(private weatherApi: WeatherApiService) {}
 
@@ -37,5 +40,17 @@ export class AppComponent {
         this.errorMessage = err.message || 'Failed to fetch weather data';
       },
     });
+  }
+
+  onToggleFavorite(city: string) {
+    if (this.favorites.includes(city)) {
+      this.favorites = this.favorites.filter((fav) => fav !== city);
+    } else {
+      this.favorites = [...this.favorites, city];
+    }
+  }
+
+  onSelectFavorite(city: string) {
+    this.onSearch(city);
   }
 }
