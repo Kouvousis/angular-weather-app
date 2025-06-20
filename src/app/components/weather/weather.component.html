@@ -42,22 +42,7 @@
             class="bg-gray-900 rounded-md p-2 hover:opacity-70"
             (click)="onToggleFavorite()"
           >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              class="lucide lucide-heart"
-              viewBox="0 0 24 24"
-              width="24"
-              height="24"
-              [attr.fill]="isFavorite() ? 'white' : 'none'"
-              stroke="currentColor"
-              stroke-width="2"
-              stroke-linecap="round"
-              stroke-linejoin="round"
-            >
-              <path
-                d="M20.8 4.6a5.5 5.5 0 0 0-7.8 0L12 5.6l-1-1a5.5 5.5 0 1 0-7.8 7.8l1 1L12 21.4l7.8-7.8 1-1a5.5 5.5 0 0 0 0-7.8z"
-              />
-            </svg>
+            <lucide-angular [img]="Heart"></lucide-angular>
           </button>
         </div>
       </div>
