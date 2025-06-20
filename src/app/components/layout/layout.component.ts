@@ -1,12 +1,11 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { WeatherData } from '../../interfaces/weather-data';
 import { CommonModule } from '@angular/common';
 import { HeaderComponent } from '../header/header.component';
-import { SearchBarComponent } from '../search-bar/search-bar.component';
 
 @Component({
   selector: 'app-layout',
-  imports: [CommonModule, HeaderComponent, SearchBarComponent],
+  imports: [CommonModule, HeaderComponent],
   templateUrl: './layout.component.html',
   styleUrl: './layout.component.css',
 })
